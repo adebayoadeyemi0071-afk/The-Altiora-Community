@@ -1,0 +1,359 @@
+/* =========================
+   BLOG PAGE STYLES
+   ========================= */
+
+.blog-page {
+  width: 100%;
+  animation: headerReveal 0.8s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* =========================
+   BLOG HERO
+   ========================= */
+
+.blog-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 85vh;
+}
+
+.blog-hero-content {
+  background-color: var(--bg-color);
+  padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-hero-label {
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.blog-hero-label::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.blog-hero h1 {
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.blog-hero h1 .dot {
+  color: var(--accent-color);
+}
+
+.blog-hero p {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 520px;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.blog-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-hero-image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   EDITORIAL GRID
+   ========================= */
+
+.blog-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.blog-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 520px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+/* Hover Effects */
+.blog-row:hover .blog-card-img-bg {
+  transform: scale(1.03);
+}
+
+.blog-row:hover .read-more-arrow {
+  transform: translateX(6px);
+}
+
+.blog-row:hover .blog-card-content {
+  transform: translateY(-2px);
+}
+
+/* Image Panels */
+.blog-card-image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+
+.blog-card-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Add a subtle dark overlay to images to ensure edge contrast */
+.blog-card-img-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.15));
+  pointer-events: none;
+}
+
+/* Content Panels */
+.blog-card-content {
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Panel Color Variations */
+.bg-dark {
+  background-color: var(--text-color);
+  color: #F5EBDD;
+}
+
+.bg-terracotta {
+  background-color: var(--accent-color);
+  color: #F5EBDD;
+}
+
+.bg-cream {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Typography inside blocks */
+.blog-category {
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bg-dark .blog-category, 
+.bg-cream .blog-category {
+  color: var(--accent-color);
+}
+
+.bg-dark .blog-category::after, 
+.bg-cream .blog-category::after {
+  content: '';
+  width: 35px;
+  height: 1px;
+  background-color: var(--accent-color);
+}
+
+.bg-terracotta .blog-category {
+  color: #F5EBDD;
+}
+
+.bg-terracotta .blog-category::after {
+  content: '';
+  width: 35px;
+  height: 1px;
+  background-color: #F5EBDD;
+}
+
+.blog-title {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.blog-desc {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  max-width: 480px;
+}
+
+/* Metadata & Link */
+.blog-meta-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.blog-meta-info {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0.85;
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 900;
+  color: var(--accent-color);
+}
+
+.bg-terracotta .read-more {
+  color: #F5EBDD;
+}
+
+.read-more-arrow {
+  transition: transform 0.3s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* =========================
+   ACTIVE NAV STATE HELPER
+   ========================= */
+/* Add this so your JS can toggle the active underline dynamically */
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  opacity: 1;
+}
+
+/* =========================
+   RESPONSIVE LAYOUTS
+   ========================= */
+
+@media (max-width: 1050px) {
+  .blog-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .blog-hero-image {
+    min-height: 48vh;
+  }
+
+  .blog-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  /* Force vertical stacking on mobile/tablet: Image always on top of content */
+  .blog-row .blog-card-image {
+    grid-row: 1;
+    min-height: 300px;
+  }
+  
+  .blog-row .blog-card-content {
+    grid-row: 2;
+    padding: 3.5rem 6%;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-hero-content {
+    padding: 4rem 6%;
+  }
+
+  .blog-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  .blog-hero p {
+    font-size: 1rem;
+  }
+
+  .blog-hero-image {
+    min-height: 38vh;
+  }
+
+  .blog-row .blog-card-image {
+    min-height: 280px;
+  }
+
+  .blog-row .blog-card-content {
+    padding: 3rem 6%;
+  }
+
+  .blog-category {
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .blog-desc {
+    margin-bottom: 2rem;
+  }
+
+  .blog-meta-footer {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+
+.blog-row:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-row:hover .blog-card-img-bg,
+  .blog-row:hover .blog-card-content,
+  .blog-row:hover .read-more-arrow {
+    transform: none;
+  }
+}
